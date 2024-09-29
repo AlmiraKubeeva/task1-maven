@@ -11,7 +11,6 @@ public class AddingProductToClientsCardTest extends BaseTest {
     /*
     POST Request - adding product to client's card
      */
-
     @Test
     public void addExistingProductToClientsCardTest() {
         reqSpec.header("Authorization", "Bearer " + authToken)
@@ -34,9 +33,8 @@ public class AddingProductToClientsCardTest extends BaseTest {
     public void addExistingProductToClientsCardIfUserIsNotAuthorizedTest() {
         RestAssured.given()
                 .contentType("application/json")
-                .baseUri("http://9b142cdd34e.vps.myjino.ru:49268/cart")
                 .body(new AddProduct(1, 2))
-                .post()
+                .post("http://9b142cdd34e.vps.myjino.ru:49268/cart")
                 .then().assertThat().statusCode(401);
     }
 }

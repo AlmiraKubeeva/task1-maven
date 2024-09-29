@@ -18,7 +18,7 @@ public class AuthFilter implements Filter {
     @Override
     public Response filter(FilterableRequestSpecification filterableRequestSpecification, FilterableResponseSpecification filterableResponseSpecification, FilterContext filterContext) {
 
-        filterableRequestSpecification.header(new Header("Authorization", "Bearer " + token));
+        filterableRequestSpecification.header(new Header("Authorization", "Bearer" + token));
 
         return filterContext.next(filterableRequestSpecification, filterableResponseSpecification);
     }

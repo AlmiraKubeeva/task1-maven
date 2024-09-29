@@ -9,10 +9,10 @@ import static org.example.constants.Pages.LOGIN;
 
 public class BaseTest {
 
+    public String authToken;
     protected RequestSpecification reqSpec = RestAssured.given()
             .contentType("application/json")
-            .baseUri("http://9b142cdd34e.vps.myjino.ru:49268");;
-    protected String authToken;
+            .baseUri("http://9b142cdd34e.vps.myjino.ru:49268");
 
     @BeforeEach
     public void setup() {
