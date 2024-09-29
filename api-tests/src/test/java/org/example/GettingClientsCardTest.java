@@ -1,20 +1,16 @@
 package org.example;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
-public class GettingClientsCardTest {
-    private RequestSpecification reqSpec = RestAssured.given()
-            .contentType("application/json")
-            .baseUri("http://9b142cdd34e.vps.myjino.ru:49268/cart");
+import static org.example.Pages.CART;
 
-    /*
-    GET Request - get client's card
-     */
+public class GettingClientsCardTest extends BaseTest {
+
     @Test
     public void getClientsCardTest() {
-        reqSpec.get()
-                .then().log().all().assertThat().statusCode(200);
+        System.out.println(CartObj.class);
+        reqSpec.header("Authorization", "Bearer " + authToken).log().all().get(CART)
+                .then().assertThat().statusCode(200)
+                .extract().as(CartObj.class);
     }
 }

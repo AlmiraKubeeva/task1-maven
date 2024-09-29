@@ -1,23 +1,37 @@
 package org.example;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DeletingProductFromClientsCard {
-    RequestSpecification reqSpec = RestAssured.given()
-            .contentType("application/json")
-            .baseUri("http://9b142cdd34e.vps.myjino.ru:49268/cart");
+import static org.example.Pages.CART;
+
+public class DeletingProductFromClientsCard extends BaseTest {
+
+    @BeforeEach
+    public void before() {
+        reqSpec.header("Authorization", "Bearer " + authToken)
+                .body(new AddProduct(1, 2))
+                .post(CART);
+    }
+
     /*
     DELETE Request - delete product from client's card
-     */
+    */
     @Test
     public void deleteAddedProductToClientsCardTest() {
-
+        reqSpec.body(new AddProduct(1, 2))
+                .delete(CART + "/1")
+                .then().log().all().assertThat().statusCode(200);
+        //extract
     }
 
     @Test
     public void deleteNotAddedProductToClientsCardTest() {
-
+        String message = reqSpec.body(new AddProduct(0, 4))
+                .delete(CART + "/0")
+                .then().assertThat().statusCode(404)
+                .extract().body().jsonPath().getString("message");
+        Assertions.assertEquals("Product not found in cart", message);
     }
 }

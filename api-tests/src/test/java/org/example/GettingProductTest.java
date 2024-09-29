@@ -1,33 +1,38 @@
 package org.example;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
+import io.restassured.common.mapper.TypeRef;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class GettingProductTest {
-    private RequestSpecification reqSpec = RestAssured.given()
-            .contentType("application/json")
-            .baseUri("http://9b142cdd34e.vps.myjino.ru:49268/products");
+import java.util.List;
 
+import static org.example.Pages.PRODUCTS;
+
+public class GettingProductTest extends BaseTest {
     /*
     GET Request - get list of products
      */
     @Test
     public void getProductsListTest() {
-        reqSpec.get()
-                .then().assertThat().statusCode(200);
+        reqSpec.get(PRODUCTS)
+                .then().assertThat().statusCode(200)
+                .extract().as(new TypeRef<List<Product>>() {});
     }
 
     @Test
     public void getProductByIdTest() {
-        reqSpec.get("/1")
-                .then().assertThat().statusCode(200);
+        reqSpec.get(PRODUCTS + "/1")
+                .then().assertThat().statusCode(200)
+                .extract().as(new TypeRef<List<Product>>() {});
+
     }
 
     @Test
     public void getNonExistingProductTest() {
-        reqSpec.get("/-1")
-                .then().assertThat().statusCode(404);
+        String message = reqSpec.get(PRODUCTS + "/0")
+                .then().assertThat().statusCode(404)
+                .extract().body().jsonPath().getString("message");
+        Assertions.assertEquals("Product not found", message);
     }
 
 }
