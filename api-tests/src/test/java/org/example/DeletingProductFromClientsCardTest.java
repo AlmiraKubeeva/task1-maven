@@ -1,12 +1,13 @@
 package org.example;
 
+import org.example.Models.AddProduct;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Pages.CART;
+import static org.example.constants.Pages.CART;
 
-public class DeletingProductFromClientsCard extends BaseTest {
+public class DeletingProductFromClientsCardTest extends BaseTest {
 
     @BeforeEach
     public void before() {

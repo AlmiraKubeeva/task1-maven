@@ -1,10 +1,11 @@
 package org.example;
 
 import io.restassured.RestAssured;
+import org.example.Models.AddProduct;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Pages.CART;
+import static org.example.constants.Pages.CART;
 
 public class AddingProductToClientsCardTest extends BaseTest {
     /*

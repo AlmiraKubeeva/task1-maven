@@ -1,6 +1,5 @@
-package org.example;
+package org.example.Models;
 
-import lombok.Data;
 import lombok.Value;
 
 @Value

@@ -2,9 +2,10 @@ package org.example;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
+import org.example.Models.User;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.example.Pages.LOGIN;
+import static org.example.constants.Pages.LOGIN;
 
 public class BaseTest {
 

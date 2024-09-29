@@ -1,12 +1,13 @@
 package org.example;
 
 import io.restassured.common.mapper.TypeRef;
+import org.example.Models.Product;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.example.Pages.PRODUCTS;
+import static org.example.constants.Pages.PRODUCTS;
 
 public class GettingProductTest extends BaseTest {
     /*

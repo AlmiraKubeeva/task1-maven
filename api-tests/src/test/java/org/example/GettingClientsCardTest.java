@@ -1,8 +1,9 @@
 package org.example;
 
+import org.example.Models.CartObj;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Pages.CART;
+import static org.example.constants.Pages.CART;
 
 public class GettingClientsCardTest extends BaseTest {
 
