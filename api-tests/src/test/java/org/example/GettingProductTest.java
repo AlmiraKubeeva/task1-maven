@@ -1,7 +1,7 @@
 package org.example;
 
 import io.restassured.common.mapper.TypeRef;
-import org.example.Models.Product;
+import org.example.models.Product;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

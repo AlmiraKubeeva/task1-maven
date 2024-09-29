@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.Models.CartObj;
+import org.example.models.CartObj;
 import org.junit.jupiter.api.Test;
 
 import static org.example.constants.Pages.CART;

@@ -1,7 +1,7 @@
 package org.example;
 
 import io.restassured.RestAssured;
-import org.example.Models.AddProduct;
+import org.example.models.AddProduct;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

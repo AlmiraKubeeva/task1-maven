@@ -1,4 +1,4 @@
-package org.example.Filters;
+package org.example.filters;
 
 
 import io.restassured.filter.Filter;

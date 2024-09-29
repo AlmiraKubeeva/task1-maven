@@ -2,7 +2,7 @@ package org.example;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
-import org.example.Models.User;
+import org.example.models.User;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.example.constants.Pages.LOGIN;

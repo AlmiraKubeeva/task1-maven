@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.Models.User;
+import org.example.models.User;
 import org.junit.jupiter.api.Test;
 
 import static org.example.constants.Pages.LOGIN;
