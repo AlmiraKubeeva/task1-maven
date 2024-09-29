@@ -16,7 +16,7 @@ public class BaseTest {
     @BeforeEach
     public void setup() {
         authToken = reqSpec
-                .body("{ \"username\": \"string\", \"password\": \"string\" }")
+                .body(new User("string", "string"))
                 .post(LOGIN)
                 .jsonPath().getString("access_token");
     }

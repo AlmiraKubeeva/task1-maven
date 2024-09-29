@@ -22,8 +22,7 @@ public class DeletingProductFromClientsCard extends BaseTest {
     public void deleteAddedProductToClientsCardTest() {
         reqSpec.body(new AddProduct(1, 2))
                 .delete(CART + "/1")
-                .then().log().all().assertThat().statusCode(200);
-        //extract
+                .then().assertThat().statusCode(200);
     }
 
     @Test
